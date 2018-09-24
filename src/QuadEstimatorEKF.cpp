@@ -239,9 +239,9 @@ void QuadEstimatorEKF::Predict(float dt, V3F accel, V3F gyro)
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
   MatrixXf accel_m(3, 1);
-  accel_m(0,0) = accel.x;
-  accel_m(1,0) = accel.y;
-  accel_m(2,0) = accel.z;
+  accel_m << accel.x,
+             accel.y,
+             accel.z;
 
   MatrixXf mult = RbgPrime * accel_m * dt;
 
