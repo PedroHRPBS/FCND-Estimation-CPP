@@ -184,15 +184,15 @@ MatrixXf QuadEstimatorEKF::GetRbgPrime(float roll, float pitch, float yaw)
   //   that your calculations are reasonable
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
-  RgbPrime(0, 0) = -cos(pitch) * sin(yaw);
-  RgbPrime(0, 1) = -sin(roll) * sin(pitch) * sin(yaw) - cos(roll) * cos(yaw);
-  RgbPrime(0, 2) = -cos(roll) * sin(pitch) * sin(yaw) + sin(roll) * cos(yaw);
-  RgbPrime(1, 0) = cos(pitch) * cos(yaw);
-  RgbPrime(1, 1) = sin(roll) * sin(pitch) * cos(yaw) - cos(roll) * sin(yaw);
-  RgbPrime(1, 2) = cos(roll) * sin(pitch) * cos(yaw) + sin(roll) * sin(yaw);
-  RgbPrime(2, 0) = 0.0f;
-  RgbPrime(2, 1) = 0.0f;
-  RgbPrime(2, 2) = 0.0f;
+  RbgPrime(0, 0) = -cos(pitch) * sin(yaw);
+  RbgPrime(0, 1) = -sin(roll) * sin(pitch) * sin(yaw) - cos(roll) * cos(yaw);
+  RbgPrime(0, 2) = -cos(roll) * sin(pitch) * sin(yaw) + sin(roll) * cos(yaw);
+  RbgPrime(1, 0) = cos(pitch) * cos(yaw);
+  RbgPrime(1, 1) = sin(roll) * sin(pitch) * cos(yaw) - cos(roll) * sin(yaw);
+  RbgPrime(1, 2) = cos(roll) * sin(pitch) * cos(yaw) + sin(roll) * sin(yaw);
+  RbgPrime(2, 0) = 0.0f;
+  RbgPrime(2, 1) = 0.0f;
+  RbgPrime(2, 2) = 0.0f;
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
