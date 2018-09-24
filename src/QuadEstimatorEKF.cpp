@@ -238,11 +238,11 @@ void QuadEstimatorEKF::Predict(float dt, V3F accel, V3F gyro)
   gPrime.setIdentity();
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
-  //MatrixXf newCov(QUAD_EKF_NUM_STATES, QUAD_EKF_NUM_STATES);
   MatrixXf accel_m(3, 1);
   accel_m(0,0) = accel.x;
   accel_m(1,0) = accel.y;
   accel_m(2,0) = accel.z;
+
   MatrixXf mult = RbgPrime * accel_m * dt;
 
   gPrime(0,3) = dt;
