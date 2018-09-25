@@ -156,7 +156,7 @@ VectorXf QuadEstimatorEKF::PredictState(VectorXf curState, float dt, V3F accel, 
 
   predictedState(3) = curState(3) + accel_gf.x * dt;
   predictedState(4) = curState(4) + accel_gf.y * dt;
-  predictedState(5) = curState(5) + (9.81f - accel_gf.z) * dt;
+  predictedState(5) = curState(5) + (accel_gf.z - 9.81f) * dt;
   predictedState(6) = curState(6);
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
@@ -276,6 +276,11 @@ void QuadEstimatorEKF::UpdateFromGPS(V3F pos, V3F vel)
   //  - The GPS measurement covariance is available in member variable R_GPS
   //  - this is a very simple update
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
+
+  for(int i=0; i<6; i++){
+      hPrime(i,i) = 1;
+      zFromX(i) = ekfState(i);
+  }
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
